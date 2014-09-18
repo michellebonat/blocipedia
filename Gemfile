@@ -38,18 +38,28 @@ group :development do
   gem 'sqlite3'
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'pry-rails'
+end
+
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'capybara'
+  gem 'launchy'
 end
 
 gem 'devise'
 gem 'figaro'
+gem 'haml-rails'
+gem 'redcarpet'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

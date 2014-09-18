@@ -43,6 +43,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end
+
 gem 'devise'
 gem 'figaro'
 

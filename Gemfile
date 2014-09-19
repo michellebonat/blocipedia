@@ -36,6 +36,8 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -59,6 +61,7 @@ gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
 gem 'redcarpet'
+gem 'friendly_id', '~> 5.0.0'
 
 
 # Use ActiveModel has_secure_password

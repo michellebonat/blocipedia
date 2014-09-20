@@ -41,7 +41,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails' , '~> 2.0'
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'pry-rails'
@@ -62,6 +62,7 @@ gem 'figaro'
 gem 'haml-rails'
 gem 'redcarpet'
 gem 'friendly_id', '~> 5.0.0'
+gem 'simple_form'
 
 
 # Use ActiveModel has_secure_password

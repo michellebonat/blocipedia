@@ -3,19 +3,23 @@
 .col-md-4
   .panel.panel-primary
     .panel.panel-heading
-      %h3.panel-title CrossFit Name Generator
+      %h3.panel-title Create A Wiki
     .panel-body
-      %p Please use singular adjectives such as: funny, crazy, powerful, etc.
-      = form_tag crossfit_name_generator_index_path, action: "create", remote: "true" do
+      %p It's simple! Just complete this form. Clicking the checkbox makes it private.
+      = form_tag wikis_create_path, action: "create", remote: "true" do
         .form-group
           .input-group
             .input-group-addon
               %span.glyphicon.glyphicon-arrow-right
-            = text_field_tag :query, nil, :class => 'form-control', :placeholder => "Enter Search Term"
-        = submit_tag('Generate Names', class:'btn btn-primary')
-.col-md-8
-  .panel.panel-primary
-    .panel.panel-heading
-      %h3.panel-title Possible CrossFit Names
-    .panel-body#crossfit-names{ :style => "text-align: center;"}
+            = text_field_tag :Title, nil, :class => 'form-control', :placeholder => "Title"
+            = text_field_tag :Body, nil, :class => 'form-control', :placeholder => "Body"
+      %p
+      %label.checkbox{ :for => "make_private" }
+      = check_box :make_private, :class => "checkbox"
+      /= simple_form_line do <
+      /%label.checkbox{ :for => "make_private" }
+      /  = f.check_box :send_email, class: "checkbox"
+      /  = t(".make_private")
+      = submit_tag('Generate Wiki', class:'btn btn-primary')
+
 

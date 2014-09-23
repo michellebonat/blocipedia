@@ -1,2 +1,21 @@
-%h1 Wikis#new
-%p Find me in app/views/wikis/new.html.haml
+%h3 New Wiki
+/ this form is not done yet
+.col-md-4
+  .panel.panel-primary
+    .panel.panel-heading
+      %h3.panel-title CrossFit Name Generator
+    .panel-body
+      %p Please use singular adjectives such as: funny, crazy, powerful, etc.
+      = form_tag crossfit_name_generator_index_path, action: "create", remote: "true" do
+        .form-group
+          .input-group
+            .input-group-addon
+              %span.glyphicon.glyphicon-arrow-right
+            = text_field_tag :query, nil, :class => 'form-control', :placeholder => "Enter Search Term"
+        = submit_tag('Generate Names', class:'btn btn-primary')
+.col-md-8
+  .panel.panel-primary
+    .panel.panel-heading
+      %h3.panel-title Possible CrossFit Names
+    .panel-body#crossfit-names{ :style => "text-align: center;"}
+

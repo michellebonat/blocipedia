@@ -1,0 +1,5 @@
+%ul
+  - wikis.each do |wiki|
+    %li= link_to wiki.title, wiki
+
+= link_to 'New', wikis_new_path

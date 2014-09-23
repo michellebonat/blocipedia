@@ -1,0 +1,3 @@
+= simple_form_for @wiki do |f|
+  = f.input :title, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
+  = f.input :body, as: :text, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control hide', id: 'body-textarea' }

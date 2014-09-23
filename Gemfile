@@ -58,6 +58,7 @@ group :development, :test do
 end
 
 gem 'devise'
+gem 'pundit'
 gem 'figaro'
 gem 'haml-rails'
 gem 'redcarpet'

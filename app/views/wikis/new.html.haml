@@ -1,11 +1,10 @@
 %h3 New Wiki
-/ this form is not connecting to the db
 .col-md-4
   .panel.panel-primary
     .panel.panel-heading
       %h3.panel-title Create A Wiki
     .panel-body
-      %p It's simple! Just complete this form. Clicking the checkbox makes it private.
+      %p It's simple! Just complete this form. Clicking the checkbox makes it a private wiki.
       =form_for @wiki do |f|
         .form-group
           .input-group
@@ -15,6 +14,7 @@
             = f.text_field :body, :class => 'form-control', :placeholder => "Body"
         %p
           %label.checkbox{ :for => "private" }
+          = f.label :private?
           = f.check_box :private, :class => "checkbox"
           = f.submit 'Generate Wiki', class:'btn btn-primary'
 

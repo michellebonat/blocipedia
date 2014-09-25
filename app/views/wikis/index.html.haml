@@ -1,13 +1,18 @@
 %h1 All Your Wikis
 
-%h2 Wikis You Own
-
-= render 'wiki_list', wikis: @wikis
+%h2 All the Wikis You Own
 
 %ul
   - @wikis.each do |wiki|
     %li= link_to wiki.title, wiki
-    %li= link_to 'Update', wikis_update_path(@wiki)
+/   %li= link_to 'Update', wikis_update_path
+/ OR
+/= render 'wiki_list', wikis: @wikis
+/ OR
+/%ul
+/  - @wikis.each do |wiki|
+/    %li= link_to wiki.title, wiki
+/    %li= link_to 'Update', wikis_update_path(@wiki)
 
 / - if current_user.owns?(@wiki)
 /   = link_to "Add Collaborators", users_collaborated_wikis_path(@wiki)
@@ -17,28 +22,11 @@
 
 %h2 Wikis On Which You Have Collaborated
 
-%ul
-  - @collaborations.each do |wiki|
-    %li= link_to wiki.title, wiki
+/%ul
+/  - @collaborations.each do |wiki|
+/    %li= link_to wiki.title, wiki
 
 /  - if current_user.can_update?(@wiki)
 /    = link_to "Edit", wikis_update_path(@wiki)
 
-= link_to "New", wikis_new_path(@wiki)
-
-
-/= render 'wiki_list', wikis: @wikis
-
-/%h1= @wiki.title
-/%p= raw @wiki.markdown_body
-
-/- if current_user.can_update?(@wiki)
-/  = link_to "Edit", wikis_update_path(@wiki)
-
-/- if current_user.owns?(@wiki)
-/  = link_to "Add Collaborators", users_collaborated_wikis_path(@wiki)
-
-/- if current_user.can_update?(@wiki)
-/  = link_to "New", wikis_new_path(@wiki)
-
-
+= link_to "New", new_wiki_path

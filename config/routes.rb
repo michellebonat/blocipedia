@@ -1,12 +1,7 @@
 Blocipedia::Application.routes.draw do
   get "users/owned_wikis"
   get "users/collaborated_wikis"
-  get "wikis/index"
-  get "wikis/new"
-  get "wikis/create"
-  get "wikis/show"
-  get "wikis/update"
-  get "wikis/destroy"
+  resources :wikis
 
   get "welcome/index"
   get "welcome/about"

@@ -1,25 +1,57 @@
 %h3 New Wiki
-/ this form is not done yet
+/ this form is not connecting to the db
 .col-md-4
   .panel.panel-primary
     .panel.panel-heading
       %h3.panel-title Create A Wiki
     .panel-body
       %p It's simple! Just complete this form. Clicking the checkbox makes it private.
-      = form_tag wikis_create_path, action: "create", remote: "true" do
+      =form_for @wiki do |f|
         .form-group
           .input-group
             .input-group-addon
               %span.glyphicon.glyphicon-arrow-right
-            = text_field_tag :Title, nil, :class => 'form-control', :placeholder => "Title"
-            = text_field_tag :Body, nil, :class => 'form-control', :placeholder => "Body"
-      %p
-      %label.checkbox{ :for => "make_private" }
-      = check_box :make_private, :class => "checkbox"
-      /= simple_form_line do <
-      /%label.checkbox{ :for => "make_private" }
-      /  = f.check_box :send_email, class: "checkbox"
-      /  = t(".make_private")
-      = submit_tag('Generate Wiki', class:'btn btn-primary')
+            = f.text_field :title, :class => 'form-control', :placeholder => "Title"
+            = f.text_field :body, :class => 'form-control', :placeholder => "Body"
+        %p
+          %label.checkbox{ :for => "private" }
+          = f.check_box :private, :class => "checkbox"
+          = f.submit 'Generate Wiki', class:'btn btn-primary'
 
 
+/ this is something to see if it renders
+/%ul
+/  %li Salt
+/  %li Peppa
+
+/ some other tries that did not work
+/%h3 New Wiki
+/= render 'form'
+/= simple_form_for @wiki do |f|
+/  = f.input :title, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
+/  = f.input :body, as: :text, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control hide', id: 'body-textarea' }
+/  #edit-wiki
+/  - if current_user.paid?
+/    = f.input :private, as: :boolean, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
+/  = f.button :submit, id: 'submit'
+
+/ this is the form_for example I saw used elsewhere had formatting issues could not get it to work
+/  =form_for @wiki do |f|
+/    .row
+/    .columns.large-6
+/    = f.label :title
+/    = f.text_field :body
+/    .columns.large-6
+/    = f.label :body
+/    = f.text_field :body
+/    .row
+/    .columns.large-3
+/    = f.label :from
+/    = f.text_field :time_from
+/    .columns.large-3
+/    = f.label :to
+/    = f.text_field :time_to
+/    = f.hidden_field :user_id, :user_id => @user.id if @user
+/    .columns.large-6
+/    = f.label :ready?
+/    = f.submit "Create Wiki!", class: "full_button"

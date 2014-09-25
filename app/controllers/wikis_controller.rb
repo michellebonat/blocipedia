@@ -1,6 +1,7 @@
 class WikisController < ApplicationController
 
-  before_action :set_wiki, only: [:update, :destroy, :show]
+  before_action :authenticate_user!
+  #before_action :set_wiki, only: [:update, :destroy, :show]
   #before_action :set_user
 
   def index
@@ -15,7 +16,7 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki = current_user.owned_wikis.new(wiki_params)
+    @wiki = current_user.wikis.build(wiki_params)
 
     if @wiki.save
       flash[:success] = "Your Wiki has been created!"
@@ -24,8 +25,10 @@ class WikisController < ApplicationController
       flash[:error] = "Your Wiki creation failed. Please try again."
       redirect_to new_wiki_path
     end
+  end
 
   def show
+    @wiki = current_user.wikis.find(params[:id])
   end
 
   def update
@@ -41,11 +44,14 @@ class WikisController < ApplicationController
   def collaborated_wikis
     @wikis = current_user.collaborated_wikis
   end
-end
 
-private_methods
+  private
 
-def load_wiki
-  @wiki = Wiki.friendly.find(params[:id])
-end
+  def wiki_params
+    params.require(:wiki).permit(:title, :body, :private, :user_id)
   end
+
+  def load_wiki
+    @wiki = Wiki.friendly.find(params[:id])
+  end
+end

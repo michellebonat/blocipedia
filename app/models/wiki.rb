@@ -10,4 +10,8 @@ class Wiki < ActiveRecord::Base
     renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
     renderer.render body
   end
+
+  def edit
+    self.is_live = !self.is_live
+  end
 end

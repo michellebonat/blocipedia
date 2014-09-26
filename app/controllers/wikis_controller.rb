@@ -32,6 +32,24 @@ class WikisController < ApplicationController
   end
 
   def update
+    @wiki = current_user.wikis.find(params[:id])
+    if @wiki.update_attributes(wiki_params)
+      flash[:notice] = "Wiki was updated."
+      redirect_to @wiki
+    else
+      flash[:error] = "There was an error saving the post. Please try again."
+      render :new
+    end
+  end
+
+  #def edit_live
+  #  @wiki = current_user.wikis.find(params[:id])
+  #  @wiki.edit_live
+  #  @wiki.save!
+  #end
+
+  def edit
+    @wiki = current_user.wikis.find(params[:id])
   end
 
   def destroy
@@ -55,3 +73,4 @@ class WikisController < ApplicationController
     @wiki = Wiki.friendly.find(params[:id])
   end
 end
+

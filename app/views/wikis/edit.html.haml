@@ -1,26 +1,27 @@
 %h3 Update Wiki
-/= render 'form'
+= render 'form'
 /= link_to "Update", wikis_edit_live_path(wiki.id), :method => :put, :remote => true, :class=> 'btn btn-success btn-small start-poll', :id => poll.id
 
-.col-md-4
-  .panel.panel-primary
-    .panel.panel-heading
-      %h3.panel-title Update It Here
-    .panel-body
-      %p It's simple! Just complete this form. Clicking the checkbox makes it a private wiki.
-      =form_for @wiki do |f|
-        .form-group
-          .input-group
-            .input-group-addon
-              %span.glyphicon.glyphicon-arrow-right
-            = f.text_field :title, :class => 'form-control', :placeholder => "Title"
-            = f.text_field :body, :class => 'form-control', :placeholder => "Body"
-        %p
-          %label.checkbox{ :for => "private" }
-          = f.label :private?
-          = f.check_box :private, :class => "checkbox"
-          = f.submit 'Update', class:'btn btn-primary'
-
-      /    = flash[:notice] = "Your update was saved."
+/ put this into a _form partial
+-#.col-md-4
+-#  .panel.panel-primary
+-#    .panel.panel-heading
+-#      %h3.panel-title Update It Here
+-#    .panel-body
+-#      %p It's simple! Just complete this form. Clicking the checkbox makes it a private wiki.
+-#      =form_for @wiki do |f|
+-#        .form-group
+-#          .input-group
+-#            .input-group-addon
+-#              %span.glyphicon.glyphicon-arrow-right
+-#            = f.text_field :title, :class => 'form-control', :placeholder => "Title"
+-#            = f.text_field :body, :class => 'form-control', :placeholder => "Body"
+-#        %p
+-#          %label.checkbox{ :for => "private" }
+-#          = f.label :private?
+-#          = f.check_box :private, :class => "checkbox"
+-#          = f.submit 'Update', class:'btn btn-primary'
+-#
+-#      /    = flash[:notice] = "Your update was saved."
 
 

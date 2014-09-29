@@ -21,6 +21,13 @@
 
       /    = flash[:notice] = "Your update was saved."
 
+/ draft, cannot see if this works, the path does not exist
+%h2 Add a Collaborator
+%ul
+  - @non_collabs.each do |user|
+  %li= link_to "Add #{user.email} as collaborator", wiki_user_collaborations_path(@wiki, user), method: :post
+
+
 
 
 / this is one approach using the simple form gem, currently not working

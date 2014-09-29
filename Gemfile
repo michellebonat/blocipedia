@@ -41,10 +41,11 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails' , '~> 2.0'
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'pry-rails'
+  gem 'database_cleaner'
 end
 
 
@@ -58,10 +59,13 @@ group :development, :test do
 end
 
 gem 'devise'
+gem 'pundit'
 gem 'figaro'
 gem 'haml-rails'
 gem 'redcarpet'
 gem 'friendly_id', '~> 5.0.0'
+gem 'simple_form'
+gem 'faker'
 
 
 # Use ActiveModel has_secure_password

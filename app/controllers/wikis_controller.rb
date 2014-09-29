@@ -9,6 +9,7 @@ class WikisController < ApplicationController
     #@private_wikis = Wiki.private_wikis
     @wikis = current_user.wikis
     @wikis_i_am_collaborating_on = current_user.collaborations
+    authorize@wiki
     #@collaborations = current_user.collaborations
   end
 
@@ -31,6 +32,8 @@ class WikisController < ApplicationController
 
   def show
     @wiki = current_user.wikis.find(params[:id])
+    authorize @wiki
+
   end
 
   def update

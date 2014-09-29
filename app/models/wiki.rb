@@ -11,7 +11,7 @@ class Wiki < ActiveRecord::Base
     renderer.render body
   end
 
-  def edit
-    self.is_live = !self.is_live
-  end
+  #def edit
+  # self.is_live = !self.is_live
+  #end
 end

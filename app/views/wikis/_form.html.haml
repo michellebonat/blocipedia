@@ -16,9 +16,12 @@
           %label.checkbox{ :for => "private" }
           = f.label :private?
           = f.check_box :private, :class => "checkbox"
-          = f.submit 'Update', class:'btn btn-primary'
+          = f.submit 'Update', :class => "btn btn-primary"
+      /   = f.submit 'Update', class:'btn btn-primary'
 
       /    = flash[:notice] = "Your update was saved."
+
+
 
 / this is one approach using the simple form gem, currently not working
 -#= simple_form_for @wiki do |f|

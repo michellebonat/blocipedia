@@ -8,11 +8,13 @@ class WikisController < ApplicationController
     #@public_wikis = Wiki.public_wikis
     #@private_wikis = Wiki.private_wikis
     @wikis = current_user.wikis
-    @collaborations = current_user.collaborations
+    @wikis_i_am_collaborating_on = current_user.collaborations
+    #@collaborations = current_user.collaborations
   end
 
   def new
     @wiki = Wiki.new
+    authorize @wiki
   end
 
   def create

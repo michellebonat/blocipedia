@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   has_many :collaborations
   has_many :wikis_i_am_collaborating_on, through: :collaborations, class_name: 'Wiki'
 
+  def role?(base_role)
+    role == base_role.to_s
+  end
+
 
   #protected
   #def confirmation_required?

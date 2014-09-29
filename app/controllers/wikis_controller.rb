@@ -32,6 +32,7 @@ class WikisController < ApplicationController
   end
 
   def update
+
     @wiki = current_user.wikis.find(params[:id])
     if @wiki.update_attributes(wiki_params)
       flash[:notice] = "Wiki was updated."
@@ -73,4 +74,3 @@ class WikisController < ApplicationController
     @wiki = Wiki.friendly.find(params[:id])
   end
 end
-

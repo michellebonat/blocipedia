@@ -6,12 +6,5 @@ class User < ActiveRecord::Base
   has_many :wikis
   has_many :collaborations
   has_many :wikis_i_am_collaborating_on, through: :collaborations, class_name: 'Wiki'
-
-
-  #protected
-  #def confirmation_required?
-  #  false
-  #end
-
 end
 

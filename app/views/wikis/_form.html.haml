@@ -1,7 +1,30 @@
-= simple_form_for @wiki do |f|
-  = f.input :title, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
-  = f.input :body, as: :text, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control hide', id: 'body-textarea' }
-  #edit-wiki
-/ - if current_user.paid?
-  = f.input :private, as: :boolean, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
-  = f.button :submit, id: 'submit'
+/%h3 Edit Your Wiki
+.col-md-4
+  .panel.panel-primary
+    .panel.panel-heading
+      %h3.panel-title Update It Here
+    .panel-body
+      %p It's simple! Just complete this form. Clicking the checkbox makes it a private wiki.
+      =form_for @wiki do |f|
+        .form-group
+          .input-group
+            .input-group-addon
+              %span.glyphicon.glyphicon-arrow-right
+            = f.text_field :title, :class => 'form-control', :placeholder => "Title"
+            = f.text_field :body, :class => 'form-control', :placeholder => "Body"
+        %p
+          %label.checkbox{ :for => "private" }
+          = f.label :private?
+          = f.check_box :private, :class => "checkbox"
+          = f.submit 'Update', class:'btn btn-primary'
+
+      /    = flash[:notice] = "Your update was saved."
+
+/ this is one approach using the simple form gem, currently not working
+-#= simple_form_for @wiki do |f|
+-#  = f.input :title, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
+-#  = f.input :body, as: :text, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control hide', id: 'body-textarea' }
+-#  #edit-wiki
+-#  - if current_user.paid?
+-#  = f.input :private, as: :boolean, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
+-#  = f.button :submit, id: 'submit'

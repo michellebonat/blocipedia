@@ -1,8 +1,10 @@
 Blocipedia::Application.routes.draw do
+  get "charges/create"
   get "users/owned_wikis"
   get "users/collaborated_wikis"
   resources :wikis
   #match '/wikis/edit_live/:wiki_id' => 'wikis#edit_live', :via => :put, :as => 'wikis_edit_live'
+  resources :charges, only: [:new, :create]
 
   get "welcome/index"
   get "welcome/about"

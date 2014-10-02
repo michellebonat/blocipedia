@@ -38,6 +38,7 @@ class WikisController < ApplicationController
   end
 
   def update
+
     @wiki = current_user.wikis.find(params[:id])
     #@users = user.find(params[:id])
     @users = User.all
@@ -85,4 +86,3 @@ class WikisController < ApplicationController
     @wiki = Wiki.friendly.find(params[:id])
   end
 end
-

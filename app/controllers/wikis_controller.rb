@@ -18,8 +18,8 @@ class WikisController < ApplicationController
   end
 
   def create
-    @user = user
-    @users = user.find(params[:id])
+    #@user = user
+    #@users = users.find(params[:id])
     @wiki = current_user.wikis.build(wiki_params)
 
     if @wiki.save

@@ -17,9 +17,9 @@
         %ul
           - @users.each do |user|
             %li
-            = check_box_tag "wiki[collaborator_ids][]", user.id, @wiki.collaborators.include?(user)
-            /= check_box_tag "wiki[wikis_i_am_collaborating_on][]", user.id, @wiki.collaborations(user)
-            = user.name
+              = check_box_tag "wiki[collaborator_ids][]", user.id, @wiki.collaborators.include?(user)
+              /= check_box_tag "wiki[wikis_i_am_collaborating_on][]", user.id, @wiki.collaborations(user)
+              = user.name
         %p
           %label.checkbox{ :for => "private" }
           = f.label :private?

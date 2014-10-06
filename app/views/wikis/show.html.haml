@@ -2,10 +2,15 @@
 %p= raw @wiki.markdown_body
 
 / need to finish this later and add policies
+
 /- if current_user.can_edit?
 = link_to "Update", edit_wiki_path
 
 /= link_to "New", _path
+
+/- if current_user.can_edit?(@wiki)
+/  = link_to "Edit", wikis_update_path(@wiki)
+
 
 / need to work on this the path is not named or created yet
 /- if current_user.owns?(@wiki)

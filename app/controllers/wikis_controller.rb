@@ -5,20 +5,21 @@ class WikisController < ApplicationController
   #before_action :set_user
 
   def index
-    #@public_wikis = Wiki.public_wikis
-    #@private_wikis = Wiki.private_wikis
     @wikis = current_user.wikis
-    @wikis_i_am_collaborating_on = current_user.collaborations
-    authorize@wiki
+    @wikis_i_am_collaborating_on = current_user.wikis_i_am_collaborating_on
+    #@users = Users.all
+    #authorize @wikis
     #@collaborations = current_user.collaborations
   end
 
   def new
     @wiki = Wiki.new
-    authorize @wiki
+    #authorize @wiki
   end
 
   def create
+    #@user = user
+    #@users = users.find(params[:id])
     @wiki = current_user.wikis.build(wiki_params)
 
     if @wiki.save
@@ -32,12 +33,17 @@ class WikisController < ApplicationController
 
   def show
     @wiki = current_user.wikis.find(params[:id])
-    authorize @wiki
+    #authorize @wiki
 
   end
 
   def update
+
     @wiki = current_user.wikis.find(params[:id])
+    #@users = user.find(params[:id])
+    @users = User.all
+    #@user = user
+    #@wikis_i_am_collaborating_on = current_user.collaborations
     if @wiki.update_attributes(wiki_params)
       flash[:notice] = "Wiki was updated."
       redirect_to @wiki
@@ -55,6 +61,8 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = current_user.wikis.find(params[:id])
+    @users = User.all
+    @wikis_i_am_collaborating_on = current_user.collaborations
   end
 
   def destroy
@@ -75,7 +83,7 @@ class WikisController < ApplicationController
   private
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body, :private, :user_id)
+    params.require(:wiki).permit(:title, :body, :private, :collaborator_ids => [])
   end
 
   def load_wiki
@@ -86,4 +94,3 @@ class WikisController < ApplicationController
     where.not(id: user)
   end
 end
-

@@ -13,31 +13,19 @@
             = f.text_field :title, :class => 'form-control', :placeholder => "Title"
             = f.text_field :body, :class => 'form-control', :placeholder => "Body"
 
-        - if current_user.premium?
-          %p
+
+        %h2 Add a Collaborator
+        %ul
+          - @users.each do |user|
+            %li
+              = check_box_tag "wiki[collaborator_ids][]", user.id, @wiki.collaborators.include?(user)
+              /= check_box_tag "wiki[wikis_i_am_collaborating_on][]", user.id, @wiki.collaborations(user)
+              = user.name
+        %p
           %label.checkbox{ :for => "private" }
           = f.label :private?
           = f.check_box :private, :class => "checkbox"
-        = f.submit 'Update', :class => "btn btn-primary"
+          = f.submit 'Update', class:'btn btn-primary'
 
+      /    = flash[:notice] = "Your update was saved."
 
-/         = flash[:notice] = "Your update was saved."
-
-
-        - if current_user.premium?
-        %h2 Add a Collaborator
-        %ul
-          - @non_collabs.each do |user|
-        %li= link_to "Add #{user.email} as collaborator", wiki_user_collaborations_path(@wiki, user), method: :post
-
-
-
-
-/ this is one approach using the simple form gem, currently not working
--#= simple_form_for @wiki do |f|
--#  = f.input :title, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
--#  = f.input :body, as: :text, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control hide', id: 'body-textarea' }
--#  #edit-wiki
--#  - if current_user.paid?
--#  = f.input :private, as: :boolean, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
--#  = f.button :submit, id: 'submit'

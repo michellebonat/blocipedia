@@ -66,6 +66,7 @@ gem 'redcarpet'
 gem 'friendly_id', '~> 5.0.0'
 gem 'simple_form'
 gem 'faker'
+gem 'stripe'
 
 
 # Use ActiveModel has_secure_password

@@ -1,7 +1,10 @@
 Blocipedia::Application.routes.draw do
+  get "charges/create"
   get "users/owned_wikis"
   get "users/collaborated_wikis"
   resources :wikis
+
+  resources :charges, only: [:new, :create]
 
   get "welcome/index"
   get "welcome/about"

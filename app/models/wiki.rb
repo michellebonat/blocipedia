@@ -3,8 +3,9 @@ class Wiki < ActiveRecord::Base
   has_many :collaborations
   has_many :collaborators, through: :collaborations, class_name: 'User'
 
-  # a different try at scopes
-  scope :visible_to, -> (user) { user ? all : where(public: true) }
+
+  scope :visible_to, -> (user) { user ? all : where(premium: true) }
+  scope :visible_to, -> (wiki) { user ? all : where(private: true) }
 
   #scope :private_wikis, -> { where private: true }
   #scope :public_wikis, -> { where private: false }
@@ -13,8 +14,4 @@ class Wiki < ActiveRecord::Base
     renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
     renderer.render body
   end
-
-  #def edit
-  # self.is_live = !self.is_live
-  #end
 end

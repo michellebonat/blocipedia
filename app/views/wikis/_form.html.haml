@@ -12,20 +12,23 @@
               %span.glyphicon.glyphicon-arrow-right
             = f.text_field :title, :class => 'form-control', :placeholder => "Title"
             = f.text_field :body, :class => 'form-control', :placeholder => "Body"
-        %p
+
+        - if current_user.premium?
+          %p
           %label.checkbox{ :for => "private" }
           = f.label :private?
           = f.check_box :private, :class => "checkbox"
-          = f.submit 'Update', :class => "btn btn-primary"
-      /   = f.submit 'Update', class:'btn btn-primary'
+        = f.submit 'Update', :class => "btn btn-primary"
 
-      /    = flash[:notice] = "Your update was saved."
 
-/ draft, cannot see if this works, the path does not exist
-%h2 Add a Collaborator
-%ul
-  - @non_collabs.each do |user|
-  %li= link_to "Add #{user.email} as collaborator", wiki_user_collaborations_path(@wiki, user), method: :post
+/         = flash[:notice] = "Your update was saved."
+
+
+        - if current_user.premium?
+        %h2 Add a Collaborator
+        %ul
+          - @non_collabs.each do |user|
+        %li= link_to "Add #{user.email} as collaborator", wiki_user_collaborations_path(@wiki, user), method: :post
 
 
 

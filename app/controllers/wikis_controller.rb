@@ -68,6 +68,10 @@ class WikisController < ApplicationController
     @wikis = current_user.collaborated_wikis
   end
 
+  def premium?
+    user.role?(:admin) or user.role?(:premium)
+  end
+
   private
 
   def wiki_params
@@ -76,6 +80,10 @@ class WikisController < ApplicationController
 
   def load_wiki
     @wiki = Wiki.friendly.find(params[:id])
+  end
+
+  def self.all_except(user)
+    where.not(id: user)
   end
 end
 

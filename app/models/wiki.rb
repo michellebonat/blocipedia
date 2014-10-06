@@ -6,8 +6,8 @@ class Wiki < ActiveRecord::Base
   #has_many :collaborators, through: :collaborations, class_name: 'User'
 
 
-  scope :visible_to, -> (user) { user ? all : where(premium: true) }
-  scope :visible_to, -> (wiki) { user ? all : where(private: true) }
+  #scope :visible_to, -> (user) { user ? all : where(premium: true) }
+  #scope :visible_to, -> (wiki) { user ? all : where(private: true) }
 
   # a different try at scopes
   #scope :visible_to, -> (user) { user ? all : where(public: true) }

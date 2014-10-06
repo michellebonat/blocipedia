@@ -29,7 +29,7 @@ class ChargesController < ApplicationController
         currency: 'usd'
     )
 
-    current_user.update_attribute(:paid, true)
+    current_user.update_attribute(:premium, true)
 
     flash[:success] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
     redirect_to user_path(current_user) # or wherever

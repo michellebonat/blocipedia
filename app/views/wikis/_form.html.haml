@@ -4,7 +4,7 @@
     .panel.panel-heading
       %h3.panel-title Update It Here
     .panel-body
-      %p It's simple! Just complete this form. Clicking the checkbox makes it a private wiki.
+      %p It's simple! Just complete this form.
       =form_for @wiki do |f|
         .form-group
           .input-group
@@ -13,19 +13,20 @@
             = f.text_field :title, :class => 'form-control', :placeholder => "Title"
             = f.text_field :body, :class => 'form-control', :placeholder => "Body"
 
-
-        %h2 Add a Collaborator
-        %ul
-          - @users.each do |user|
-            %li
-              = check_box_tag "wiki[collaborator_ids][]", user.id, @wiki.collaborators.include?(user)
-              /= check_box_tag "wiki[wikis_i_am_collaborating_on][]", user.id, @wiki.collaborations(user)
-              = user.name
-        %p
-          %label.checkbox{ :for => "private" }
-          = f.label :private?
-          = f.check_box :private, :class => "checkbox"
-          = f.submit 'Update', class:'btn btn-primary'
+        - if current_user.premium
+          %h2 Add a Collaborator
+          %ul
+            - @users.each do |user|
+              %li
+                = check_box_tag "wiki[collaborator_ids][]", user.id, @wiki.collaborators.include?(user)
+                /= check_box_tag "wiki[wikis_i_am_collaborating_on][]", user.id, @wiki.collaborations(user)
+                = user.name
+        - if current_user.premium
+          %p
+            %label.checkbox{ :for => "private" }
+            = f.label :private?
+            = f.check_box :private, :class => "checkbox"
+        = f.submit 'Update', class:'btn btn-primary'
 
       /    = flash[:notice] = "Your update was saved."
 

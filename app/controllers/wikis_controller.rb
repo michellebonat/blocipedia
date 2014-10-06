@@ -14,6 +14,7 @@ class WikisController < ApplicationController
 
   def new
     @wiki = Wiki.new
+    @users = User.all_except(current_user)
     #authorize @wiki
   end
 
@@ -61,8 +62,8 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = current_user.wikis.find(params[:id])
-    @users = User.all
     @wikis_i_am_collaborating_on = current_user.collaborations
+    @users = User.all_except(current_user)
   end
 
   def destroy

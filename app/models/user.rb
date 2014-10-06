@@ -12,7 +12,9 @@ class User < ActiveRecord::Base
     role == base_role.to_s
   end
 
-
+  def self.all_except(user)
+    where.not(id: user)
+  end
   #protected
   #def confirmation_required?
   #  false

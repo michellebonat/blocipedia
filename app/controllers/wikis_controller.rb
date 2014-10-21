@@ -1,26 +1,18 @@
 class WikisController < ApplicationController
 
   before_action :authenticate_user!
-  #before_action :set_wiki, only: [:update, :destroy, :show]
-  #before_action :set_user
 
   def index
     @wikis = current_user.wikis
     @wikis_i_am_collaborating_on = current_user.wikis_i_am_collaborating_on
-    #@users = Users.all
-    #authorize @wikis
-    #@collaborations = current_user.collaborations
   end
 
   def new
     @wiki = Wiki.new
     @users = User.all_except(current_user)
-    #authorize @wiki
   end
 
   def create
-    #@user = user
-    #@users = users.find(params[:id])
     @wiki = current_user.wikis.build(wiki_params)
 
     if @wiki.save
@@ -34,17 +26,12 @@ class WikisController < ApplicationController
 
   def show
     @wiki = current_user.wikis.find(params[:id])
-    #authorize @wiki
 
   end
 
   def update
-
     @wiki = current_user.wikis.find(params[:id])
-    #@users = user.find(params[:id])
     @users = User.all
-    #@user = user
-    #@wikis_i_am_collaborating_on = current_user.collaborations
     if @wiki.update_attributes(wiki_params)
       flash[:notice] = "Wiki was updated."
       redirect_to @wiki
@@ -54,19 +41,10 @@ class WikisController < ApplicationController
     end
   end
 
-  #def edit_live
-  #  @wiki = current_user.wikis.find(params[:id])
-  #  @wiki.edit_live
-  #  @wiki.save!
-  #end
-
   def edit
     @wiki = current_user.wikis.find(params[:id])
     @wikis_i_am_collaborating_on = current_user.collaborations
     @users = User.all_except(current_user)
-  end
-
-  def destroy
   end
 
   def owned_wikis

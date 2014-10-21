@@ -5,37 +5,13 @@
 %ul
   - @wikis.each do |wiki|
     %li= link_to wiki.title, wiki
-/   %li= link_to 'Update', wikis_update_path
-/ OR
-/= render 'wiki_list', wikis: @wikis
-/ OR
-/%ul
-/  - @wikis.each do |wiki|
-/    %li= link_to wiki.title, wiki
-/    %li= link_to 'Update', wikis_update_path(@wiki)
-
-/ - if current_user.owns?(@wiki)
-/   = link_to "Add Collaborators", users_collaborated_wikis_path(@wiki)
-
-/  - if current_user.can_update?(@wiki)
-/    = link_to "New", wikis_new_path(@wiki)
 
 %h2 Wikis On Which You Have Collaborated
 
-/ this part is not working yet
 %ul
   - @wikis_i_am_collaborating_on.each do |wiki|
     %li= link_to wiki.title, wiki
-/ it may need to be this
-/   %li= link_to collaboration.title, collaboration
-
-
-/  - if current_user.can_update?(@wiki)
-/    = link_to "Edit", wikis_update_path(@wiki)
 
 = link_to "New", new_wiki_path
 
-/ note we might need something like this to restrict link views to logged in users
-/ <% if policy(Post.new).create? %>
-/  <%= link_to "New Post", new_post_path, class: 'btn btn-success' %>
-/ <% end %>
+

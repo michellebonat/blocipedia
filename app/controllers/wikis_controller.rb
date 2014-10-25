@@ -47,17 +47,18 @@ class WikisController < ApplicationController
     @users = User.all_except(current_user)
   end
 
-  def owned_wikis
-    @wikis = current_user.owned_wikis
-  end
+  # def owned_wikis
+  #   @wikis = current_user.owned_wikis
+  # end
 
-  def collaborated_wikis
-    @wikis = current_user.collaborated_wikis
-  end
+  # hiding for cleanup
+  # def collaborated_wikis
+  #   @wikis = current_user.collaborated_wikis
+  # end
 
-  def premium?
-    user.role?(:admin) or user.role?(:premium)
-  end
+  # def premium?
+  #   user.role?(:admin) or user.role?(:premium)
+  # end
 
   private
 
@@ -65,11 +66,12 @@ class WikisController < ApplicationController
     params.require(:wiki).permit(:title, :body, :private, :collaborator_ids => [])
   end
 
-  def load_wiki
-    @wiki = Wiki.friendly.find(params[:id])
-  end
-
-  def self.all_except(user)
-    where.not(id: user)
-  end
+  # hiding as part of cleanup don't think we need this
+  # def load_wiki
+  #   @wiki = Wiki.friendly.find(params[:id])
+  # end
+  #
+  # def self.all_except(user)
+  #   where.not(id: user)
+  # end
 end

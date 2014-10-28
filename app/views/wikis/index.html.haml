@@ -1,12 +1,12 @@
-%h1 All Your Wikis
+%h1 Your Pages
 
-%h2 All the Wikis You Own
+%h2 Pages You Own
 
 %ul
   - @wikis.each do |wiki|
     %li= link_to wiki.title, wiki
 
-%h2 Wikis On Which You Have Collaborated
+%h2 Pages On Which You Have Collaborated
 
 %ul
   - @wikis_i_am_collaborating_on.each do |wiki|

@@ -2,14 +2,16 @@
 <html>
 <head>
   <title>Blocipedia</title>
+  <!--add url for google font merriweather here get from google.com/fonts (maybe) -->
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
+<div class="container" id="primary-menu">
   <ul class="nav nav-tabs">
-    <li><%= link_to "Home", welcome_index_path %></li>
+    <!--need to create class for current page then add to each li-->
+    <li><%= link_to "Home", welcome_index_path,:class => current_page?(welcome_index_path) ? 'current':'' %></li>
     <li><%= link_to "About", welcome_about_path %></li>
 
     <div class="pull-right user-info">
@@ -22,7 +24,8 @@
     </div>
 
   </ul>
-
+</div>
+<div class="container">
   <%= yield %>
 </div>
 

@@ -1,6 +1,6 @@
 == README
 
-This is a wikipedia-type app to teach web development and Rails4.
+This is a wikipedia-type app to practice web development and Rails4.
 
 It was built by Michelle Bonat with my awesome mentor John Sawers for the Bloc program.
 

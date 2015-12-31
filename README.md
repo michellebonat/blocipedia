@@ -1,10 +1,6 @@
 == README
 
-This is a wikipedia-type app to practice web development and Rails4.
+This is a Wikipedia-type app to demonstrate Ruby on Rails and Haml. It includes collaboration, privacy, and paid settings (using Stripe).
 
-It was built by Michelle Bonat with my awesome mentor John Sawers for the Bloc program.
+It was built by Michelle Bonat.
 
-See the config/application.yml and its blank template config/application.example.yml
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

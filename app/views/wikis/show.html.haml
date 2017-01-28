@@ -1,6 +1,7 @@
 %h1= @wiki.title
 %p= raw @wiki.markdown_body
 
-= link_to "Update", edit_wiki_path
+= link_to "Update This Wiki", edit_wiki_path, :class => 'button rounded'
 
+= link_to "Create New Wiki", new_wiki_path, :class => 'button rounded'
 

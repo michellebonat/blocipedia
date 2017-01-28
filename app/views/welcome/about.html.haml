@@ -1,9 +1,17 @@
-%h1 About This Application
-%h3
+%p
+.jumbotron
+	%h1 Hello, wikis!
 	%p This is a Wikipedia-type app to demonstrate Ruby on Rails and some tools that go with it.
+	%p
+		- if current_user
+			= link_to "Keep Going", wikis_path, class: 'btn btn-primary btn-lg'
+		- else
+			= link_to "Try It", new_user_session_path, class: 'btn btn-primary btn-lg'
+
+%h1 About This Application
 
 %h3
-	%p Features include collaboration, privacy, and paid settings.
+	%p Features include wikis that have collaboration, privacy, and paid settings.
 
 %h3
 	%p Some tools used include:
@@ -11,6 +19,16 @@
 %li Rspec, Capybara, and Factory Girl for testing;
 %li Stripe for payments;
 %li Sqlite (dev) and PostgreSql (production) for database management.
+%li Has_many :through association.
 %br
 
-%p It was built by Michelle Bonat.
+%h3
+	Demo user:
+%h4
+	%strong email:
+	member@example.com
+%h4
+	%strong password:
+	welcome1234
+%p
+%p This was built by Michelle Bonat awhile ago, but I keep it around to remember those days.

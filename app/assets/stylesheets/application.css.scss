@@ -18,7 +18,7 @@ h1, h2, h3, h4{
   display: block;
   padding: 0;
   background: #C8CBCC;
-  border-top: 1px solid #D5D5D5;
+  border-top: 0px solid #D5D5D5;
   background: -webkit-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   background: -moz-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   background: -o-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
@@ -80,4 +80,16 @@ body {
 }
 .button.rounded {
   border-radius: 36px;
+}
+
+.panel-primary {
+  border-color: #16c1cf;
+}
+
+.panel-heading {
+  color: #16c1cf;
+}
+
+.input-group-addon {
+  color: #16c1cf;
 }

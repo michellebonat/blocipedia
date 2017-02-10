@@ -105,14 +105,26 @@ body {
   border-radius: 36px;
 }
 
-.panel-primary {
-  border-color: #428bca;
+.new-panel-primary {
+  border-color: #303597;
+  text-align: center;
+  vertical-align: middle;
 }
 
-.panel-heading {
-  color: #303597;
+.new-panel-heading {
+  color: white;
+  background-color: #303597;
+  border-color: #303597;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .input-group-addon {
   color: #303597;
 }
+
+//.panel-primary > .panel-heading {
+//  color: white;
+//  background-color: #428bca;
+//  border-color: #428bca;
+//}

@@ -1,7 +1,7 @@
 %h3 New Wiki
 .col-md-4
-  .panel.panel-primary
-    .panel.panel-heading
+  .panel.new-panel-primary
+    .panel.new-panel-heading
       %h3.panel-title Create A Wiki
     .panel-body
       %p It's simple! Just complete this form. Clicking the checkbox makes it a private wiki.
@@ -15,7 +15,8 @@
         %p
           %label.checkbox{ :for => "private" }
           = f.label :private?
-          = f.check_box :private, :class => "checkbox"
+          %p
+          = f.check_box :private, :class => "checkbox, pull-center"
           %p
           = f.submit 'Generate Wiki', class:'btn button-primary'
 

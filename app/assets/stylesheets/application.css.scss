@@ -19,14 +19,15 @@ h1, h2, h3, h4{
   padding: 0;
   background: #C8CBCC;
   border-top: 0px solid #D5D5D5;
+  border-radius: 8px;
   background: -webkit-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   background: -moz-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   background: -o-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   background: -ms-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   background: linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E8EBEB', endColorstr='#C8CBCC', GradientType=0);
-  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1);
-  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: inset 0px 10px 0px rgba(255, 255, 255, 1);
+  box-shadow: 0 8px 9px -9px black;
 }
 
 #primary-menu ul{
@@ -49,7 +50,7 @@ h1, h2, h3, h4{
   font-weight: 600;
   height: 28px;
   line-height: 28px;
-  color: rgb(16, 168, 181);
+  color: #303597;
 }
 
 body {
@@ -122,6 +123,13 @@ body {
 .input-group-addon {
   color: #303597;
 }
+
+.shadow {
+  -moz-box-shadow:    inset 0 0 9px #000000;
+  -webkit-box-shadow: inset 0 0 9px #000000;
+  box-shadow:         inset 0 0 9px #737197;
+}
+
 
 //.panel-primary > .panel-heading {
 //  color: white;

@@ -19,14 +19,15 @@ h1, h2, h3, h4{
   padding: 0;
   background: #C8CBCC;
   border-top: 0px solid #D5D5D5;
+  border-radius: 8px;
   background: -webkit-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   background: -moz-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   background: -o-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   background: -ms-linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   background: linear-gradient(to bottom, #E8EBEB 0%, #C8CBCC 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E8EBEB', endColorstr='#C8CBCC', GradientType=0);
-  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1);
-  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: inset 0px 10px 0px rgba(255, 255, 255, 1);
+  box-shadow: 0 8px 9px -9px black;
 }
 
 #primary-menu ul{
@@ -47,9 +48,10 @@ h1, h2, h3, h4{
   font-style: normal;
   font-variant: normal;
   font-weight: 600;
-  height: 28px;
+  height: 50px;
+  border-radius: 8px;
   line-height: 28px;
-  color: rgb(16, 168, 181);
+  color: #303597;
 }
 
 body {
@@ -71,25 +73,67 @@ body {
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 1px;
-  font-style: italic;
+  //font-style: italic;
   font-weight: 400;
   font-family: 'Droid serif';
   cursor: pointer;
   text-align: center;
   vertical-align: middle;
 }
+
+.button-primary {
+  color: #fff !important;
+  background-color: #303597;
+  border-radius: 36px;
+}
+
+.button-secondary {
+  color: #fff !important;
+  background-color: #303597;
+  display: inline-block;
+  padding: 12px 15px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 36px;
+}
+
 .button.rounded {
   border-radius: 36px;
 }
 
-.panel-primary {
-  border-color: #16c1cf;
+.new-panel-primary {
+  border-color: #303597;
+  text-align: center;
+  vertical-align: middle;
 }
 
-.panel-heading {
-  color: #16c1cf;
+.new-panel-heading {
+  color: white;
+  background-color: #303597;
+  border-color: #303597;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .input-group-addon {
-  color: #16c1cf;
+  color: #303597;
 }
+
+.shadow {
+  -moz-box-shadow:    inset 0 0 9px #000000;
+  -webkit-box-shadow: inset 0 0 9px #000000;
+  box-shadow:         inset 0 0 9px #737197;
+}
+
+
+//.panel-primary > .panel-heading {
+//  color: white;
+//  background-color: #428bca;
+//  border-color: #428bca;
+//}

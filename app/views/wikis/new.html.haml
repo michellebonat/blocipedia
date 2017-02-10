@@ -1,22 +1,25 @@
 %h3 New Wiki
 .col-md-4
-  .panel.new-panel-primary
-    .panel.new-panel-heading
-      %h3.panel-title Create A Wiki
-    .panel-body
-      %p It's simple! Just complete this form. Clicking the checkbox makes it a private wiki.
-      =form_for @wiki do |f|
-        .form-group
-          .input-group
-            .input-group-addon
-              %span.glyphicon.glyphicon-arrow-right
-            = f.text_field :title, :class => 'form-control', :placeholder => "Title"
-            = f.text_field :body, :class => 'form-control', :placeholder => "Body"
-        %p
-          %label.checkbox{ :for => "private" }
-          = f.label :private?
-          %p
-          = f.check_box :private, :class => "checkbox, pull-center"
-          %p
-          = f.submit 'Generate Wiki', class:'btn button-primary'
+	.panel.new-panel-primary
+		.panel.new-panel-heading
+			%h3.panel-title Create A Wiki
+		.panel-body
+			%p It's simple! Just complete this form. Clicking the checkbox makes it a private wiki.
+			=form_for @wiki do |f|
+				.form-group
+					.input-group
+						.input-group-addon
+							%span.glyphicon.glyphicon-arrow-right
+						= f.text_field :title, :class => 'form-control', :placeholder => "Title"
+						= f.text_field :body, :class => 'form-control', :placeholder => "Body"
+				%p
+					%label.checkbox{ :for => "private" }
+					= f.label :private?
+					= f.check_box :private, :class => "checkbox" "center"
+					%p
+					= f.submit 'Generate Wiki', class:'btn button-primary'
+
+.col-md-4
+	%section
+		= link_to "See Your Wikis", wikis_path, :class => 'button-secondary'
 
